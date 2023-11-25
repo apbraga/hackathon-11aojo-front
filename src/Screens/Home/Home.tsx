@@ -55,8 +55,6 @@ const Home = () => {
     );
   });
 
-  console.log("This is a console");
-
   return (
     <Container maxWidth="lg">
       <Grid container direction="row" spacing={15}>
