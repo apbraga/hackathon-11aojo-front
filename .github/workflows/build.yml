@@ -1,7 +1,7 @@
 name: build-and-deploy
 run-name: ${{ github.actor }} is building GitHub Actions
 on:
-  push:
+  pull_request:
 
 jobs:
   build:
