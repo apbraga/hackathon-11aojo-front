@@ -38,7 +38,7 @@ const Home = () => {
 
   useEffect(() => {
     getData();
-  }, [getData]);
+  });
 
   const onChangeSearch = (
     event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
