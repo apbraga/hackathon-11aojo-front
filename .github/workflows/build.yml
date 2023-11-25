@@ -23,8 +23,8 @@ jobs:
       - name: Building project
         run: yarn build
 
-      # - name: Running tests
-      #   run: npm run test
+      - name: Running tests
+        run: yarn test
 
       - name: Uploading production-ready build files
         uses: actions/upload-artifact@v2
