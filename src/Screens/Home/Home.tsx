@@ -19,18 +19,18 @@ import "./HomeStyles.css";
 const Home = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
   const [searchText, setSearchText] = useState<string>("");
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const getPersonAPI = useAPI(Movies.getMovies);
 
   useEffect(() => {
-    getData()
+    getData();
   }, []);
 
   const getData = () => {
     setIsLoading(true);
     getPersonAPI
       .requestPromise(searchText)
-      .then((info: IMovie[]) => {        
+      .then((info: IMovie[]) => {
         console.log(info);
         setMovies(info);
         setIsLoading(false);
@@ -46,7 +46,6 @@ const Home = () => {
     setSearchText(event.target.value);
   };
 
-
   let arrayInfo: JSX.Element[] = [];
   movies.forEach((movie: IMovie) => {
     arrayInfo.push(
@@ -55,6 +54,8 @@ const Home = () => {
       </Grid>
     );
   });
+
+  console.log("This is a console");
 
   return (
     <Container maxWidth="lg">
@@ -72,8 +73,11 @@ const Home = () => {
                 label="Pesquisar"
                 size="small"
                 onChange={onChangeSearch}
-              /> &nbsp;
-              <Button variant="contained" onClick={() => getData()}>Buscar</Button>
+              />{" "}
+              &nbsp;
+              <Button variant="contained" onClick={() => getData()}>
+                Buscar
+              </Button>
             </Grid>
           </Grid>
         </Grid>
