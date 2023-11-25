@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     if: ${{ github.event.pull_request.merged }}
-    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -44,4 +43,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
-          SOURCE_DIR: bundle # optional: defaults to public
+          SOURCE_DIR: build
