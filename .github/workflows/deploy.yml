@@ -3,6 +3,8 @@ run-name: Deploy Workflow
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -10,18 +12,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Installing Node.js
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
-
       - name: Installing NPM packages
         run: yarn
-
       - name: Building project
         run: yarn build
-
       - name: Uploading production-ready build files
         uses: actions/upload-artifact@v2
         with:
