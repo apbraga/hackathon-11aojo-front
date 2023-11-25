@@ -3,8 +3,6 @@ run-name: Deploy Workflow
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
   build:
@@ -44,3 +42,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
           SOURCE_DIR: build
+          INPUT_NODE-VERSION: 16.x
