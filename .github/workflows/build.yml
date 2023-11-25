@@ -1,0 +1,38 @@
+name: build-and-deploy
+run-name: ${{ github.actor }} is building GitHub Actions
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Installing Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Installing NPM packages
+        run: npm ci
+
+      - name: Building project
+        run: npm run build
+
+      - name: Running tests
+        run: npm run test
+
+      - name: Uploading production-ready build files
+        uses: actions/upload-artifact@v2
+        with:
+          name: production-files
+          path: ./build
