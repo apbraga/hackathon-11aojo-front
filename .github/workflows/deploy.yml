@@ -43,4 +43,4 @@ jobs:
         with:
           name: production-files
           path: ./build
-      - run: aws s3 sync ./build s3://hackathon-front/hackaton-11aojo-emc
+      - run: aws s3 sync ./build s3://hackaton-11aojo-emc
